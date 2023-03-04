@@ -23,7 +23,25 @@ const jobSchema = new mongoose.Schema({
   }
 });
 
-module.exports = {
-    Job: mongoose.model('Job', jobSchema)
+const userSchema = new mongoose.Schema({
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    }
+  });
+
+
+  module.exports = {
+    JobPosting: mongoose.model('Job', jobSchema),
+    User: mongoose.model('User', userSchema),
   };
   
