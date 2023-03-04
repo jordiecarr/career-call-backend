@@ -20,11 +20,11 @@ const jobSchema = new mongoose.Schema({
   salary: {
     type: Number,
     required: false,
-  }
+  }, 
 });
 
 const userSchema = new mongoose.Schema({
-  username: {
+  email: {
     type: String,
     required: true,
     unique: true,
@@ -32,10 +32,17 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  name: {
+    type: String,
+    required: true,
   }
 });
 
+
 module.exports = {
-    Job: mongoose.model('Job', jobSchema)
+    JobPosting: mongoose.model('Job', jobSchema),
+    User: mongoose.model('User', userSchema),
   };
+  
   
