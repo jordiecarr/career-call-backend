@@ -19,6 +19,11 @@ const jobSchema = new mongoose.Schema({
   },
   salary: {
     type: Number,
-    required: true,
+    required: false,
   }
 });
+
+module.exports = {
+    Job: mongoose.model('Job', jobSchema)
+  };
+  
