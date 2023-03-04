@@ -23,6 +23,18 @@ const jobSchema = new mongoose.Schema({
   }
 });
 
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  }
+});
+
 module.exports = {
     Job: mongoose.model('Job', jobSchema)
   };
