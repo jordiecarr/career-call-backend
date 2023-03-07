@@ -10,7 +10,7 @@ const jobSchema = new mongoose.Schema({
     required: true,
   },
   company: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
   },
   location: {
@@ -19,29 +19,30 @@ const jobSchema = new mongoose.Schema({
   },
   salary: {
     type: Number,
+    required: false,
+  }, 
+});
+
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
     required: true,
   }
 });
 
-const userSchema = new mongoose.Schema({
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    }
-  });
 
-
-  module.exports = {
+module.exports = {
     JobPosting: mongoose.model('Job', jobSchema),
     User: mongoose.model('User', userSchema),
   };
+  
   
