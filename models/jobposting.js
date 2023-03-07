@@ -10,7 +10,7 @@ const jobSchema = new mongoose.Schema({
     required: true,
   },
   company: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
   },
   location: {
@@ -18,12 +18,12 @@ const jobSchema = new mongoose.Schema({
     required: true,
   },
   salary: {
-    type: Number,
+    type: String,
     required: false,
   }
 });
 
-module.exports = {
-    Job: mongoose.model('Job', jobSchema)
-  };
+module.exports = 
+    mongoose.model('Job', jobSchema)
+  ;
   
