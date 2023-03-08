@@ -1,7 +1,7 @@
 // dependencies
 const express = require('express');
 const mongoose = require('mongoose');
-const Jobs = require('./models/jobposting')
+const Jobs = require('./models/job')
 
 //app
 const app = express();
