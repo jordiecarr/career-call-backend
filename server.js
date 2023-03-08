@@ -56,7 +56,6 @@ app.post('/jobs', async (req, res) => {
     }
 })
 
-
 // app listen
 app.listen(PORT, () => {
     console.log(`Express is listening on port: ${PORT}`)
