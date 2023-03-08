@@ -1,7 +1,7 @@
 // dependencies
 const express = require('express');
 const mongoose = require('mongoose');
-const Jobs = require('./models/jobposting')
+const Jobs = require('./models/job')
 
 //app
 const app = express();
@@ -10,6 +10,7 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT;
 const DATABASE_URL = process.env.DATABASE_URL;
+const jobsRouter = require('./controllers/hiresController')
 
 
 //connection to mongodb
@@ -31,6 +32,8 @@ app.use(express.json())
 
 // routes
 
+
+
 // test route
 app.get('/', (req, res) => {
     res.json({
@@ -38,23 +41,26 @@ app.get('/', (req, res) => {
     })
 });
 
+
+
+app.use(jobsRouter)
 // index route
-app.get("/jobs", async (req, res) => {
-    try {
-      res.status(200).json(await Jobs.find({}));
-    } catch (error) {
-      res.status(400).json({ message: "something went wrong" });
-    }
-  });
+// app.get("/jobs", async (req, res) => {
+//     try {
+//       res.status(200).json(await Jobs.find({}));
+//     } catch (error) {
+//       res.status(400).json({ message: "something went wrong" });
+//     }
+//   });
 
 //create route
-app.post('/jobs', async (req, res) => {
-    try {
-        res.status(201).json(await Jobs.create(req.body))
-    } catch (error) {
-        res.status(400).json({message: 'something went wrong'})
-    }
-})
+// app.post('/jobs', async (req, res) => {
+//     try {
+//         res.status(201).json(await Jobs.create(req.body))
+//     } catch (error) {
+//         res.status(400).json({message: 'something went wrong'})
+//     }
+// })
 
 
 // app listen
