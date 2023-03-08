@@ -18,10 +18,17 @@ const jobSchema = new mongoose.Schema({
     required: true,
   },
   salary: {
-    type: String,
+    type: Number,
     required: false,
-  }
+  }, 
 });
 
-module.exports = mongoose.model('Job', jobSchema);
+
+
+
+module.exports = {
+    JobPosting: mongoose.model('Job', jobSchema),
+  };
   
+  
+
