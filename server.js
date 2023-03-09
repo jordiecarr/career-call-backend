@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Jobs = require('./models/job')
+const methodOverride = require('method-override')
 
 //app
 const app = express();
@@ -22,17 +23,10 @@ mongoose.connection
   .on("close", () => console.log("You are disconnected from MongoDB"))
   .on("error", (error) => console.log(`MongoDB Error: ${error.message}`));
 
-
-
-
-
 //middleware
 app.use(express.json())
 
-
 // routes
-
-
 
 // test route
 app.get('/', (req, res) => {
@@ -41,27 +35,8 @@ app.get('/', (req, res) => {
     })
 });
 
-
-
 app.use(jobsRouter)
 // index route
-// app.get("/jobs", async (req, res) => {
-//     try {
-//       res.status(200).json(await Jobs.find({}));
-//     } catch (error) {
-//       res.status(400).json({ message: "something went wrong" });
-//     }
-//   });
-
-//create route
-// app.post('/jobs', async (req, res) => {
-//     try {
-//         res.status(201).json(await Jobs.create(req.body))
-//     } catch (error) {
-//         res.status(400).json({message: 'something went wrong'})
-//     }
-// })
-
 
 // app listen
 app.listen(PORT, () => {
