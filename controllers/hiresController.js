@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router()
 const Jobs = require('../models/job')
 
+
 // index route
 router.get("/hires", async (req, res) => {
     try {
