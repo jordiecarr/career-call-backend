@@ -11,6 +11,16 @@ router.get("/hires", async (req, res) => {
     }
   });
 
+  // delete route
+
+  router.delete('/:id', async(req, res) => {
+    try {
+      res.status(200).json(await Jobs.findByIdAndDelete(req.params.id))
+    } catch (error) {
+      res.status(400).json({message: 'something went wrong'})
+    }
+  });
+
   // post route
   router.post('/jobs', async (req, res) => {
     try {
@@ -18,6 +28,6 @@ router.get("/hires", async (req, res) => {
     } catch (error) {
         res.status(400).json({message: 'something went wrong'})
     }
-})
+});
 
 module.exports = router;
