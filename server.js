@@ -3,9 +3,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Jobs = require('./models/job')
 const methodOverride = require('method-override')
+const cors = require('cors')
 
 //app
 const app = express();
+app.use(cors())
 
 //configure settings
 require('dotenv').config();
