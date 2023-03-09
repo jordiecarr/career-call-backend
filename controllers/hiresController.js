@@ -8,6 +8,7 @@ router.get("/hires", async (req, res) => {
     try {
       res.status(200).json(await Jobs.find({}));
     } catch (error) {
+      console.log(error)
       res.status(400).json({ message: "something went wrong" });
     }
   });
