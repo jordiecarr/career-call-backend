@@ -22,10 +22,22 @@ router.get("/hires", async (req, res) => {
     }
   });
 
-  // post route
+  // update route
+
+  router.put('/:id', async (req, res) => {
+    try {
+      res.status(200).json(
+        await Jobs.findByIdAndUpdate(req.params.id, req.body, { new: true})
+      );
+    } catch(eror) {
+      res.status(400).json ({message: 'something went wrong'})
+    }
+  })
+  
+  // create route
   router.post('/jobs', async (req, res) => {
     try {
-        res.status(201).json(await Jobs.create(req.body))
+        res.status(200).json(await Jobs.create(req.body))
     } catch (error) {
         res.status(400).json({message: 'something went wrong'})
     }
