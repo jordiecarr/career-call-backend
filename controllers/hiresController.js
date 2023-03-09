@@ -13,7 +13,6 @@ router.get("/hires", async (req, res) => {
   });
 
   // delete route
-
   router.delete('/:id', async(req, res) => {
     try {
       res.status(200).json(await Jobs.findByIdAndDelete(req.params.id))
@@ -23,7 +22,6 @@ router.get("/hires", async (req, res) => {
   });
 
   // update route
-
   router.put('/:id', async (req, res) => {
     try {
       res.status(200).json(
@@ -42,5 +40,15 @@ router.get("/hires", async (req, res) => {
         res.status(400).json({message: 'something went wrong'})
     }
 });
+
+// show route
+router.get('/:id', async (req, res) => {
+  try {
+    res.status(200).json ( await Jobs.findById(req.params.id))
+  } catch(error) {
+    res.status(400).json({message: 'something went wrong'})
+  }
+})
+
 
 module.exports = router;
