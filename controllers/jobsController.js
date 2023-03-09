@@ -1,6 +1,10 @@
  const express = require('express');
  const router = express.Router()
  const Jobs = require('../models/job')
+ const methodOverride = require('method-override');
+
+ //middleware
+ app.use(methodOverride('_method'));
 
  // index route
  router.get("/jobs", async (req, res) => {
